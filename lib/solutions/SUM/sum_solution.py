@@ -15,4 +15,3 @@ class SumSolution:
     
     def check_upper_limit(self, x, y):
         return (x<101) and (y<101)
-
