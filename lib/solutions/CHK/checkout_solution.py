@@ -49,6 +49,6 @@ class CheckoutSolution:
         return result
 
 f=open("challenges/CHK_R4.txt")
-print(f.read())
-
-
+for line in f:
+    if line.startswith("|"):
+        print(line)
