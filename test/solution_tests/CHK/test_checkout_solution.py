@@ -13,7 +13,8 @@ class CheckoutSolution():
         assert CheckoutSolution().checkout('AAA') == 130
         assert CheckoutSolution().checkout('AAAAA') == 200
         assert CheckoutSolution().checkout('EEB') == 80
-   
+        assert CheckoutSolution().checkout('EE') == 80
+
     def test_illegal_input(self):
         assert CheckoutSolution().checkout('X') == -1
        
