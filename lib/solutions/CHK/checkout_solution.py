@@ -8,6 +8,8 @@ class CheckoutSolution:
         prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40}
         for item in prices.keys():
             x=skus.count(item)
+            print('x', x)
+            print('item', item)
             illegal_input+=x
             if item == 'A':
                 if int(x/5)>0:
@@ -24,4 +26,5 @@ class CheckoutSolution:
         if len(skus)-illegal_input>0:
             result=-1
         return result
+print(CheckoutSolution.checkout(1,'EE'))
 
