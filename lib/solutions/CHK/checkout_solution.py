@@ -32,6 +32,4 @@ class CheckoutSolution:
             result=-1
         return result
 
-print(CheckoutSolution.checkout(1, 'FFFFFF'))
-
 

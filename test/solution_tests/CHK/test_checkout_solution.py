@@ -5,8 +5,20 @@ class CheckoutSolution():
     def test_checkoutA(self):
         assert CheckoutSolution().checkout('A') == 50
     
+    def test_checkoutB(self):
+        assert CheckoutSolution().checkout('B') == 30
+    
+    def test_checkoutC(self):
+        assert CheckoutSolution().checkout('C') == 20
+
+    def test_checkoutC(self):
+        assert CheckoutSolution().checkout('D') == 15
+
     def test_checkoutE(self):
         assert CheckoutSolution().checkout('E') == 40
+    
+    def test_checkoutF(self):
+        assert CheckoutSolution().checkout('F') == 10
     
     def test_checkoutMultiple(self):
         assert CheckoutSolution().checkout('BB') == 45
@@ -14,7 +26,8 @@ class CheckoutSolution():
         assert CheckoutSolution().checkout('AAAAA') == 200
         assert CheckoutSolution().checkout('EEB') == 80
         assert CheckoutSolution().checkout('EE') == 80
-
+        assert CheckoutSolution().checkout('FFF') == 20
+        assert CheckoutSolution().checkout('FFFFFF') == 40
     def test_illegal_input(self):
         assert CheckoutSolution().checkout('X') == -1
        
