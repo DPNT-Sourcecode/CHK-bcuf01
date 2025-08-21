@@ -48,6 +48,7 @@ class CheckoutSolution:
             result=-1
         return result
 
+
 f=open("challenges/CHK_R4.txt")
 for line in f:
     if line.startswith("|"):
@@ -55,5 +56,9 @@ for line in f:
             continue     
         print(line)
         print(line[2])
+        print(line[9:12])
+
+        CheckoutSolution().new_item(line[2], int(line[9:12]))
+
 
 
