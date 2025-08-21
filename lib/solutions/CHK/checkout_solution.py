@@ -7,19 +7,21 @@ class CheckoutSolution:
     # skus = unicode string
     def __init__(self):
         self.price={}
-        self.offers=None 
+        self.offers={} 
     
     def new_item(self,key,price):
         self.price[key]=price
-
+        self.offers[key]=None
+    
     def get_price(self,key):
         return(self.price[key])
     
-    def add_offer(key,fun):
-        if self.offers is None:
-            self.offers=[fun]
-        else:
-            self.offers.append(fun)    
+    def add_offer(self, key,fun,var):
+        self.offers[key]={'offer':fun, 'var'}
+
+    def get_offer(self,key, val):
+        for offer in self.offers[key]:
+            print(offer(val))
 
     def checkout(self, skus):
         result=0
