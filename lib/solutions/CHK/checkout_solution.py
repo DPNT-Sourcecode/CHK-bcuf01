@@ -15,8 +15,9 @@ class CheckoutSolution:
                 result+=x%2*prices[item]+int(x/2)*45
             else:
                 result+=x*prices[item]
-
+        if len(skus)-illegal_input>0:
+            result=-1
         return result
 
 
-print(CheckoutSolution.checkout(1,'CD'))
+print(CheckoutSolution.checkout(1,'f'))
