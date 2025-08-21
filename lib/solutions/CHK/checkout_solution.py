@@ -48,6 +48,7 @@ class CheckoutSolution:
             result=-1
         return result
 
-f=open("../challenges/CHK_R4.txt")
+f=open("challenges/CHK_R4.txt")
 print(f.read())
+
 
