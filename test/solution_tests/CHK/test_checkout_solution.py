@@ -8,6 +8,7 @@ class CheckoutSolution():
     def test_checkoutMultiple(self):
         assert CheckoutSolution().checkout('BB') == 45
         assert CheckoutSolution().checkout('AAA') == 130
+        assert CheckoutSolution().checkout('AAAAA') == 200
 
     def test_illegal_input(self):
         assert CheckoutSolution().checkout('X') == -1
