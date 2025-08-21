@@ -51,6 +51,9 @@ class CheckoutSolution:
 f=open("challenges/CHK_R4.txt")
 for line in f:
     if line.startswith("|"):
-        if line.__contains__('Item'):     
-            print(line)
+        if line.__contains__('Item'):
+            continue     
+        print(line)
+        print(line[2])
+
 
