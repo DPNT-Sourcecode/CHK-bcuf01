@@ -16,8 +16,8 @@ class CheckoutSolution:
     def get_price(self,key):
         return(self.price[key])
     
-    def add_offer(self, key,fun,var):
-        self.offers[key]={'offer':fun, 'var'}
+    def add_offer(self, key,fun,val):
+        self.offers[key]={'offer':fun, 'val':val}
 
     def get_offer(self,key, val):
         for offer in self.offers[key]:
@@ -67,3 +67,4 @@ for line in f:
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
+
