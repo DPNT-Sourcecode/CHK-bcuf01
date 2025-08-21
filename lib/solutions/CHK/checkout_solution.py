@@ -23,14 +23,15 @@ class CheckoutSolution:
                     x-=discount
                 print('x', x)
                 result+=x%2*prices[item]+int(x/2)*45
-            elif item == 'F':    
-                x-=int(x/3)
             else:
+                if item == 'F':    
+                    x-=int(x/3)
                 result+=x*prices[item]
             print('result', result)    
         if len(skus)-illegal_input>0:
             result=-1
         return result
 
-print(CheckoutSolution.checkout(1, 'F'))
+print(CheckoutSolution.checkout(1, 'FFFFFF'))
+
 
