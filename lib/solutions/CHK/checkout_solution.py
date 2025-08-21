@@ -49,6 +49,7 @@ class CheckoutSolution:
 
 
 f=open("challenges/CHK_R4.txt")
+c=CheckoutSolution()
 for line in f:
     if line.startswith("|"):
         if line.__contains__('Item'):
@@ -57,8 +58,9 @@ for line in f:
         print(line[2])
         print(line[9:12])
 
-        CheckoutSolution().new_item(line[2], int(line[9:12]))
-print(CheckoutSolution.get_price('B'))        
+        c.new_item(line[2], int(line[9:12]))
+print(c.get_price('X'))        
+
 
 
 
