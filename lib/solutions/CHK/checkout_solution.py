@@ -5,18 +5,18 @@ class CheckoutSolution:
     def new_item(self,key,price):
         self.key=key
         self.price=price
-        self.rules=None 
-    def add_items(self, keys, prices,rules=None):
+        self.offers=None 
+    def add_items(self, keys, prices,offers=None):
         for i in range(len(keys)):
             self.new_item(keys[i],p[i])
-            if rules[i] is not None:
-                for item in rules[i]:
-                    self.add_rule(rules[i])
-    def add_rule(key,fun):
-        if self.rules is None:
-            self.rules=[fun]
+            if offers[i] is not None:
+                for item in offers[i]:
+                    self.add_rule(offers[i])
+    def add_offer(key,fun):
+        if self.offers is None:
+            self.offers=[fun]
         else:
-            self.rules.append(fun)    
+            self.offers.append(fun)    
 
     def checkout(self, skus):
         result=0
@@ -51,4 +51,6 @@ class CheckoutSolution:
 f=open("challenges/CHK_R4.txt")
 for line in f:
     if line.startswith("|"):
-        print(line)
+        if line.__contains__('Item'):     
+            print(line)
+
