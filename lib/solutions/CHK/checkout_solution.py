@@ -1,4 +1,7 @@
-
+def buy_x_get_y_free(num,x):
+    if int(num/x)>0:
+        discount=int(num/x)
+    return(discount)
 class CheckoutSolution:
 
     # skus = unicode string
@@ -11,6 +14,7 @@ class CheckoutSolution:
 
     def get_price(self,key):
         return(self.price[key])
+    
     def add_offer(key,fun):
         if self.offers is None:
             self.offers=[fun]
@@ -60,6 +64,7 @@ for line in f:
 
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
+print(buy_x_get_y_free(5,3))
 
 
 
