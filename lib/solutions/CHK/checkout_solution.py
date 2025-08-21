@@ -5,7 +5,7 @@ class CheckoutSolution:
     def checkout(self, skus):
         result=0
         illegal_input=0
-        prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40}
+        prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40, 'F':10}
         for item in prices.keys():
             x=skus.count(item)
             print('x', x)
@@ -23,10 +23,14 @@ class CheckoutSolution:
                     x-=discount
                 print('x', x)
                 result+=x%2*prices[item]+int(x/2)*45
+            elif item == 'F':    
+                x-=int(x/3)
             else:
                 result+=x*prices[item]
             print('result', result)    
         if len(skus)-illegal_input>0:
             result=-1
         return result
+
+print(CheckoutSolution.checkout(1, 'F'))
 
