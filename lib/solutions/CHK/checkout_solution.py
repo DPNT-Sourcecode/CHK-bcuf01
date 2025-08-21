@@ -2,16 +2,15 @@
 class CheckoutSolution:
 
     # skus = unicode string
-    def new_item(self,key,price):
-        self.key=key
-        self.price=price
+    def __init__(self):
+        self.price={}
         self.offers=None 
-    def add_items(self, keys, prices,offers=None):
-        for i in range(len(keys)):
-            self.new_item(keys[i],p[i])
-            if offers[i] is not None:
-                for item in offers[i]:
-                    self.add_rule(offers[i])
+    
+    def new_item(self,key,price):
+        self.price[key]=price
+
+    def get_price(self,key):
+        return(self.price[key])
     def add_offer(key,fun):
         if self.offers is None:
             self.offers=[fun]
@@ -59,6 +58,8 @@ for line in f:
         print(line[9:12])
 
         CheckoutSolution().new_item(line[2], int(line[9:12]))
+print(CheckoutSolution.get_price('B'))        
+
 
 
 
