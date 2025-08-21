@@ -19,12 +19,16 @@ class CheckoutSolution:
                     result+=x%3*prices[item]+int(x/3)*130
             elif item == 'B':
                 discount=int(skus.count('E')/2)
-                x-=discount
+                if x>0:
+                    x-=discount
+                print('x', x)
                 result+=x%2*prices[item]+int(x/2)*45
             else:
                 result+=x*prices[item]
+            print('result', result)    
         if len(skus)-illegal_input>0:
             result=-1
         return result
 print(CheckoutSolution.checkout(1,'EE'))
+
 
