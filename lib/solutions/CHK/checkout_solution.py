@@ -30,4 +30,3 @@ class CheckoutSolution:
             result=-1
         return result
 
-
