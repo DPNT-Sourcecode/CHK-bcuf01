@@ -10,9 +10,8 @@ class CheckoutSolution:
             x=skus.count(item)
             illegal_input+=x
             if item == 'A':
-                if x%5>0:
+                if int(x/5)>0:
                     remainder=x%5
-                    print(remainder)
                     result+=remainder%3*prices[item]+int(remainder/3)*130+int(x/5)*200  
                 else:    
                     result+=x%3*prices[item]+int(x/3)*130
@@ -27,4 +26,4 @@ class CheckoutSolution:
         return result
 
 
-print(CheckoutSolution.checkout(1,'AAAAA'))
+print(CheckoutSolution.checkout(1,'AAAAABBEE'))
