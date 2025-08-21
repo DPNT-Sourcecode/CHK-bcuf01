@@ -2,6 +2,22 @@
 class CheckoutSolution:
 
     # skus = unicode string
+    def new_item(self,key,price):
+        self.key=key
+        self.price=price
+        self.rules=None 
+    def add_items(self, keys, prices,rules=None):
+        for i in range(len(keys)):
+            self.new_item(keys[i],p[i])
+            if rules[i] is not None:
+                for item in rules[i]:
+                    self.add_rule(rules[i])
+    def add_rule(key,fun):
+        if self.rules is None:
+            self.rules=[fun]
+        else:
+            self.rules.append(fun)    
+
     def checkout(self, skus):
         result=0
         illegal_input=0
@@ -31,3 +47,7 @@ class CheckoutSolution:
         if len(skus)-illegal_input>0:
             result=-1
         return result
+
+f=open("../challenges/CHK_R4.txt")
+print(f.read())
+
