@@ -72,6 +72,7 @@ class CheckoutSolution:
         '''
         Buy X for Y
         '''
+        print('executing offer 1')
         discount=int(self.counts[key_item]/n_items)
         self.counts[key_item]-=n_items*discount
         self.price[offer_key]=new_value
@@ -165,5 +166,6 @@ print(c.checkout('AAA'))
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
+
 
 
