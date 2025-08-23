@@ -40,9 +40,9 @@ class CheckoutSolution:
     
     def count_chars(self, string):
         u, counts = np.unique(list(string), return_counts=True)
-        print(u, counts)
+        #print(u, counts)
         self.counts=dict(zip(u,counts))
-        print(self.counts)
+        #print(self.counts)
 
     def new_item(self,key,price):
         self.price[key]=price
@@ -98,8 +98,9 @@ c=CheckoutSolution()
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
 print(c.price)
-print(c.offers)
+#print(c.offers)
 print(c.count_chars('ABBBC'))
 c.count_chars('ABBBC')
 counts=c.counts
 print(c.counts['A'] == 1)
+
