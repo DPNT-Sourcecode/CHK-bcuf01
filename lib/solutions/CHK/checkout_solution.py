@@ -92,14 +92,14 @@ class CheckoutSolution:
         #prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40, 'F':10}
         
         #execute all offers of type zero first
-        for offer in self.offer[0].keys():
+        for offer in self.offers[0].keys():
             k=self.offers[0][offer]['k']
             if k in self.counts.keys():
                 if self.offers[0][offer]['new_val'] in self.counts.keys():
                     self.get_offer(0, offer,k)
         
         #execute all offers of type one next
-        for offer in sorted(self.offer[1].keys(), reverse = True):
+        for offer in sorted(self.offers[1].keys(), reverse = True):
             k=self.offers[1][offer]['k']
             if k in self.counts.keys():
                     self.get_offer(1, offer,k)
@@ -153,3 +153,10 @@ counts=c.counts
 print(c.counts['A'] == 1)
 print(c.counts['B'] == 3)
 print(c.counts['C'] == 1)
+print(c.checkout('BB') == 45)
+print(c.checkout('AAA') == 130)
+print(c.checkout('AAAAA') == 200)
+print(c.checkout('EEB') == 80)
+print(c.checkout('EE') == 80)
+print(c.checkout('FFF') == 20)
+print(c.checkout('FFFFFF') == 40)
