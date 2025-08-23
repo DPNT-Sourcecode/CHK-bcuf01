@@ -40,3 +40,9 @@ class CheckoutSolution():
         offer_type=1
         CheckoutSolution().add_offer(offer_type, key, 3, 'A', 130)
         assert key in CheckoutSolution().offers[offer_type]
+    
+    def test_count_chars(self):
+        counts=CheckoutSolution().count_chars('ABBBC')
+        assert counts['A']  == 1
+        assert counts['B'] == 3
+        assert counts['C'] == 1
