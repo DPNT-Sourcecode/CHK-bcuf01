@@ -74,6 +74,8 @@ for line in f:
                 n=item[:2]
                 if n[-1].isdigit() == False:
                     n=n[:-1]  
+                offer_key=item[:3].strip()
+                print('offer key', offer_key)    
                 if 'get one ' in item:
                     f_type=0
                     new_value=item[-6]
@@ -90,4 +92,5 @@ for line in f:
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
 print(c.price)
+
 
