@@ -72,13 +72,10 @@ for line in f:
             print('offers', offers)
             for item in offers:
                 n=item[:2]
+                if n[-1].isdigit() == False:
+                    n=n[:-1]        
                 print('n', n)
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
 print(c.price)
-
-
-
-
-
