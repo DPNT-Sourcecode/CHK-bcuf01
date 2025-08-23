@@ -94,6 +94,3 @@ print(c.get_price('X'))
 print(buy_x_get_y_free(5,3))
 print(c.price)
 print(c.offers)
-
-
-
