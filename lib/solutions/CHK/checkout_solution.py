@@ -8,7 +8,7 @@ def read_items_from_file(f,o):
         if line.startswith("|"):
             if line.__contains__('Item'):
                 continue     
-            print('17',line[17])
+            #print('17',line[17])
             if line[17]!=' ':
                 offers=line[17:]
                 offers=offers[:-2].strip()
@@ -99,8 +99,10 @@ print(c.get_price('X'))
 print(buy_x_get_y_free(5,3))
 print(c.price)
 #print(c.offers)
-print(c.count_chars('ABBBC'))
+#print(c.count_chars('ABBBC'))
 c.count_chars('ABBBC')
 counts=c.counts
 print(c.counts['A'] == 1)
+print(c.counts['B'] == 3)
+print(c.counts['C'] == 1)
 
