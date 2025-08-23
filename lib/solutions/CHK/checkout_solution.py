@@ -83,7 +83,7 @@ class CheckoutSolution:
         input=self.offers[f_type][offer_key]
         if f_type == 0:
             return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
-        elif f_type == 1:
+        if f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
 
 
@@ -112,6 +112,8 @@ class CheckoutSolution:
             print(self.counts[k]*self.price[k] ) 
             print('key',k, self.price[k])    
             #if         
+            print(self.counts[k])
+            print(self.price[k])
             result+=self.counts[k]*self.price[k] 
         return result           
 '''
@@ -166,6 +168,7 @@ print(c.checkout('AAA'))
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
+
 
 
 
