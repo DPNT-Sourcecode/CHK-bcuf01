@@ -1,3 +1,4 @@
+import numpy as np
 def buy_x_get_y_free(num,x):
     if int(num/x)>0:
         discount=int(num/x)
@@ -12,24 +13,19 @@ def read_items_from_file(f,o):
                 offers=line[17:]
                 offers=offers[:-2].strip()
                 offers=offers.split(', ')
-            #print('offers', offers)
                 for item in offers:
                     n=item[:2]
                     if n[-1].isdigit() == False:
                         n=n[:-1]  
                     offer_key=item[:3].strip()
-                #print('offer key', offer_key)    
                     if 'get one ' in item:
                         f_type=0
                         new_value=item[-6]
-                    #print('ew', new_value)         
                     if 'for' in item:
                         f_type=1
                         new_value=item[-3:]  
                         if new_value[0].isdigit() == False:
                              new_value=new_value[1:] 
-                    #print('new', new_value)
-                #print('n', n)
                     o.add_offer(f_type,offer_key,n,offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
 class CheckoutSolution:
@@ -38,9 +34,16 @@ class CheckoutSolution:
     def __init__(self):
         self.price={}
         self.offers={0:{}, 1:{}} 
+        self.counts=None
         f=open("challenges/CHK_R4.txt")
         read_items_from_file(f, self)
     
+    def count_chars(self, string):
+        u, counts = np.unique(list(string), return_counts=True)
+        print(u, counts)
+        self.counts=dict(zip(u,counts))
+        print(self.counts)
+
     def new_item(self,key,price):
         self.price[key]=price
     
@@ -50,6 +53,8 @@ class CheckoutSolution:
     def add_offer(self,fun_type, offer_key, n_items, key, new_val):
         self.offers[fun_type][offer_key]= {'n_items':n_items, 'k':key, 'new_val':new_val, 'offer':offer_key}
 
+    def offer_0(self, n_items, key_item, key_discount, offer_key ):
+        items=self.counts
     def get_offer(self,key, val):
         for offer in self.offers[key]:
             print(offer(val))
@@ -94,3 +99,5 @@ print(c.get_price('X'))
 print(buy_x_get_y_free(5,3))
 print(c.price)
 print(c.offers)
+print(c.count_chars('ABBBC'))
+print(c.count_chars('ABBBC') == {np.str_('A'): np.int64(1), np.str_('B'): np.int64(3), np.str_('C'): np.int64(1)})
