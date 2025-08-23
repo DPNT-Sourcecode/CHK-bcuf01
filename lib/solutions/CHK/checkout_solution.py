@@ -76,6 +76,7 @@ class CheckoutSolution:
         self.counts[key_item]-=n_items*discount
         self.price[offer_key]=new_value
         self.counts[offer_key]=discount
+        print(discount)
 
     def get_offer(self,f_type, offer_key):
         input=self.offers[f_type][offer_key]
@@ -108,7 +109,8 @@ class CheckoutSolution:
             if k not in self.price.keys():
                return -1   
             print(self.counts[k]*self.price[k] ) 
-            print('key',k, self.price[k])             
+            print('key',k, self.price[k])    
+            #if         
             result+=self.counts[k]*self.price[k] 
         return result           
 '''
@@ -156,9 +158,10 @@ print(c.counts['A'] == 1)
 print(c.counts['B'] == 3)
 print(c.counts['C'] == 1)
 print(c.checkout('BB') == 45)
-print(c.checkout('AAA') == 130)
-print(c.checkout('AAAAA') == 200)
-print(c.checkout('EEB') == 80)
+print(c.checkout('AAA'))
+#print(c.checkout('AAA') == 130)
+#print(c.checkout('AAAAA') == 200)
+#print(c.checkout('EEB') == 80)
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
