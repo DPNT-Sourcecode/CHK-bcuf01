@@ -33,6 +33,10 @@ class CheckoutSolution():
     
     def test_new_item(self):
         CheckoutSolution().new_item('?',700)
-
-        assert CheckoutSolution().price['?'] == 7
-       
+        assert CheckoutSolution().price['?'] == 700
+    
+    def test_add_offer(self):
+        key='3A'
+        offer_type=1
+        CheckoutSolution().add_offer(offer_type, key, 3, 'A', 130)
+        assert key in CheckoutSolution().offers[offer_type]
