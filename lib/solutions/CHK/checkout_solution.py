@@ -105,4 +105,3 @@ counts=c.counts
 print(c.counts['A'] == 1)
 print(c.counts['B'] == 3)
 print(c.counts['C'] == 1)
-
