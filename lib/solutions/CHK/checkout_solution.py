@@ -25,7 +25,8 @@ def read_items_from_file(f,o):
                         f_type=1
                         new_value=item[-3:]  
                         if new_value[0].isdigit() == False:
-                             new_value=int(new_value[1:])
+                             new_value=new_value[1:]
+                        new_value=int(new_value)     
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
 class CheckoutSolution:
@@ -58,7 +59,7 @@ class CheckoutSolution:
         X get Y free
         '''
         items=self.counts[key_discount]
-        items_discount_key=items[key_discount]
+        items_discount_key=items
         if items_discount_key>0:
             max_discount=items_discount_key
         if key_item == key_discount:
@@ -113,7 +114,7 @@ class CheckoutSolution:
             print('key',k, self.price[k])    
             #if         
             print(self.counts[k])
-            print(self.price[k])
+            print(type(self.price[k]))
             result+=self.counts[k]*self.price[k] 
         return result           
 '''
@@ -161,10 +162,9 @@ print(c.counts['A'] == 1)
 print(c.counts['B'] == 3)
 print(c.counts['C'] == 1)
 print(c.checkout('BB') == 45)
-print(c.checkout('AAA'))
-#print(c.checkout('AAA') == 130)
-#print(c.checkout('AAAAA') == 200)
-#print(c.checkout('EEB') == 80)
+print(c.checkout('AAA') == 130)
+print(c.checkout('AAAAA') == 200)
+print(c.checkout('EEB') == 80)
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
