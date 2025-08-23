@@ -74,6 +74,9 @@ for line in f:
                 n=item[:2]
                 if n[-1].isdigit() == False:
                     n=n[:-1]        
+                if 'for' in item:
+                    new_value=item[-3:]    
+                    print('new', new_value)
                 print('n', n)
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
