@@ -103,5 +103,6 @@ class CheckoutSolution:
             if k not in self.price.keys():
                return -1   
             result+=self.counts[k]*self.price[k] 
-        return result           
+        return int(result)         
+
 
