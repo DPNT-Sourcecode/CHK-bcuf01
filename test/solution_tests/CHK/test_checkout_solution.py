@@ -19,7 +19,7 @@ class CheckoutSolution():
     
     def test_checkoutF(self):
         assert CheckoutSolution().checkout('F') == 10
-    
+
     def test_checkoutMultiple(self):
         assert CheckoutSolution().checkout('BB') == 45
         assert CheckoutSolution().checkout('AAA') == 130
@@ -30,4 +30,9 @@ class CheckoutSolution():
         assert CheckoutSolution().checkout('FFFFFF') == 40
     def test_illegal_input(self):
         assert CheckoutSolution().checkout('X') == -1
+    
+    def test_new_item(self):
+        CheckoutSolution().new_item('?',700)
+
+        assert CheckoutSolution().price['?'] == 7
        
