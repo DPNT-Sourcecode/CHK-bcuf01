@@ -7,7 +7,7 @@ class CheckoutSolution:
     # skus = unicode string
     def __init__(self):
         self.price={}
-        self.offers={} 
+        self.offers={0:{}, 1:{}} 
     
     def new_item(self,key,price):
         self.price[key]=price
@@ -16,8 +16,8 @@ class CheckoutSolution:
     def get_price(self,key):
         return(self.price[key])
     
-    def add_offer(self, key,fun,val):
-        self.offers[key]={'offer':fun, 'val':val}
+    def add_offer(self,fun_type, offer_key, number, key, new_val):
+        self.offers[fun_type][offer_key]= {'n':number, 'k':key, 'new_val':new_val, 'offer':offer_key}
 
     def get_offer(self,key, val):
         for offer in self.offers[key]:
