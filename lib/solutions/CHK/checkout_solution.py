@@ -106,7 +106,9 @@ class CheckoutSolution:
         
         for k in self.counts.keys():
             if k not in self.price.keys():
-               return -1                 
+               return -1   
+            print(self.counts[k]*self.price[k] ) 
+            print('key',key)             
             result+=self.counts[k]*self.price[k] 
         return result           
 '''
@@ -160,3 +162,4 @@ print(c.checkout('EEB') == 80)
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
+
