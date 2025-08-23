@@ -25,8 +25,8 @@ def read_items_from_file(f,o):
                         f_type=1
                         new_value=item[-3:]  
                         if new_value[0].isdigit() == False:
-                             new_value=new_value[1:] 
-                    o.add_offer(f_type,offer_key,n,offer_key[-1],new_value)
+                             new_value=int(new_value[1:])
+                    o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
 class CheckoutSolution:
 
@@ -54,15 +54,63 @@ class CheckoutSolution:
         self.offers[fun_type][offer_key]= {'n_items':n_items, 'k':key, 'new_val':new_val, 'offer':offer_key}
 
     def offer_0(self, n_items, key_item, key_discount, offer_key ):
-        items=self.counts
-    def get_offer(self,key, val):
-        for offer in self.offers[key]:
-            print(offer(val))
+        '''
+        X get Y free
+        '''
+        items=self.counts[key_discount]
+        items_discount_key=items[key_discount]
+        if items_discount_key>0:
+            max_discount=items_discount_key
+        if key_item == key_discount:
+            n_items+=1
+        discount=int(self.counts[key_item]/n_items)
+        if discount>max_discount:
+            discount=max_discount
+        self.counts[key_discount]-=discount    
+    
+    def offer_1(self, n_items, key_item, new_value, offer_key ): 
+        '''
+        Buy X for Y
+        '''
+        discount=int(self.counts[key_item]/n_items)
+        self.counts[key_item]-=m*discount
+        self.prices[offer_key]=new_value
+        self.counts[offer_key]=discount
+
+    def get_offer(self,f_type, offer_key):
+        input=self.functions[f_type][offer_key]
+        if f_type == 0:
+            return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
+        elif f_type == 1:
+            return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
+
 
     def checkout(self, skus):
         result=0
         illegal_input=0
-        prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40, 'F':10}
+        self.count_chars(skus)
+        #prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40, 'F':10}
+        
+        #execute all offers of type zero first
+        for offer in self.offer[0].keys():
+            k=self.offers[0][offer]['k']
+            if k in self.counts.keys():
+                if self.offers[0][offer]['new_val'] in self.counts.keys():
+                    self.get_offer(0, offer,k)
+        
+        #execute all offers of type one next
+        for offer in sorted(self.offer[1].keys(), reverse = True):
+            k=self.offers[1][offer]['k']
+            if k in self.counts.keys():
+                    self.get_offer(1, offer,k)
+        
+        for k in self.counts.keys():
+            if k not in self.prices.keys():
+               return -1                 
+            result+=self.counts[k]*self.prices[k] 
+        return result           
+'''
+
         for item in prices.keys():
             x=skus.count(item)
             print('x', x)
@@ -86,8 +134,8 @@ class CheckoutSolution:
                 result+=x*prices[item]
             print('result', result)    
         if len(skus)-illegal_input>0:
-            result=-1
-        return result
+            result=-1'''
+     
 
 
 #f=open("challenges/CHK_R4.txt")
