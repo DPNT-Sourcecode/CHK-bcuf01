@@ -28,8 +28,10 @@ class CheckoutSolution():
         assert CheckoutSolution().checkout('EE') == 80
         assert CheckoutSolution().checkout('FFF') == 20
         assert CheckoutSolution().checkout('FFFFFF') == 40
+        assert CheckoutSolution().checkout('EEBBBAAA') == 255
+
     def test_illegal_input(self):
-        assert CheckoutSolution().checkout('X') == -1
+        assert CheckoutSolution().checkout('X*') == -1
     
     def test_new_item(self):
         CheckoutSolution().new_item('?',700)
@@ -42,7 +44,8 @@ class CheckoutSolution():
         assert key in CheckoutSolution().offers[offer_type]
     
     def test_count_chars(self):
-        counts=CheckoutSolution().count_chars('ABBBC')
-        assert counts['A']  == 1
+        CheckoutSolution().count_chars('ABBBC')
+        counts=CheckoutSolution().counts
+        assert counts['A'] == 1
         assert counts['B'] == 3
         assert counts['C'] == 1
