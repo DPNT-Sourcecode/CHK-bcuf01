@@ -87,7 +87,7 @@ class CheckoutSolution:
 
     def checkout(self, skus):
         result=0
-        illegal_input=0
+        #illegal_input=0
         self.count_chars(skus)
         #prices={'A':50, 'B':30, 'C':20,'D':15, 'E':40, 'F':10}
         
@@ -108,7 +108,7 @@ class CheckoutSolution:
             if k not in self.price.keys():
                return -1   
             print(self.counts[k]*self.price[k] ) 
-            print('key',key)             
+            print('key',k, self.price[k])             
             result+=self.counts[k]*self.price[k] 
         return result           
 '''
@@ -162,4 +162,5 @@ print(c.checkout('EEB') == 80)
 print(c.checkout('EE') == 80)
 print(c.checkout('FFF') == 20)
 print(c.checkout('FFFFFF') == 40)
+
 
