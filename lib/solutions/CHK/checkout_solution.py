@@ -41,7 +41,7 @@ class CheckoutSolution:
     def count_chars(self, string):
         u, counts = np.unique(list(string), return_counts=True)
         print(u, counts)
-        self.counts=dict(zip(u,counts))
+        self.counts=dict(zip(str(u),int(counts)))
         print(self.counts)
 
     def new_item(self,key,price):
