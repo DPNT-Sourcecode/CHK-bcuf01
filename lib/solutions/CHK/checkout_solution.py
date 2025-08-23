@@ -73,12 +73,12 @@ class CheckoutSolution:
         Buy X for Y
         '''
         discount=int(self.counts[key_item]/n_items)
-        self.counts[key_item]-=m*discount
-        self.prices[offer_key]=new_value
+        self.counts[key_item]-=n_items*discount
+        self.price[offer_key]=new_value
         self.counts[offer_key]=discount
 
     def get_offer(self,f_type, offer_key):
-        input=self.functions[f_type][offer_key]
+        input=self.offers[f_type][offer_key]
         if f_type == 0:
             return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 1:
@@ -96,18 +96,18 @@ class CheckoutSolution:
             k=self.offers[0][offer]['k']
             if k in self.counts.keys():
                 if self.offers[0][offer]['new_val'] in self.counts.keys():
-                    self.get_offer(0, offer,k)
+                    self.get_offer(0, offer)
         
         #execute all offers of type one next
         for offer in sorted(self.offers[1].keys(), reverse = True):
             k=self.offers[1][offer]['k']
             if k in self.counts.keys():
-                    self.get_offer(1, offer,k)
+                    self.get_offer(1, offer)
         
         for k in self.counts.keys():
-            if k not in self.prices.keys():
+            if k not in self.price.keys():
                return -1                 
-            result+=self.counts[k]*self.prices[k] 
+            result+=self.counts[k]*self.price[k] 
         return result           
 '''
 
