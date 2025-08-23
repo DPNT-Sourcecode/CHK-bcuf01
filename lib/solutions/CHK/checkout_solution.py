@@ -55,6 +55,7 @@ class CheckoutSolution:
 
 f=open("challenges/CHK_R4.txt")
 c=CheckoutSolution()
+
 for line in f:
     if line.startswith("|"):
         if line.__contains__('Item'):
@@ -64,10 +65,13 @@ for line in f:
         print(line[9:12])
         print(line[17:])
         print('17',line[17])
-        print('18',line[18])
-        #offers=
+        if line[17]!=' ':
+            offers=line[17:]
+            offers.split(', ')
+            print(offers)
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
 print(c.price)
+
 
