@@ -62,7 +62,7 @@ for line in f:
         print(line)
         print(line[2])
         print(line[9:12])
-
+        print(line[17:])
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
