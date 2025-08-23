@@ -67,12 +67,14 @@ for line in f:
         print('17',line[17])
         if line[17]!=' ':
             offers=line[17:]
+            offers=offers[:-2].strip()
             offers=offers.split(', ')
             print('offers', offers)
         c.new_item(line[2], int(line[9:12]))
 print(c.get_price('X'))        
 print(buy_x_get_y_free(5,3))
 print(c.price)
+
 
 
 
