@@ -29,7 +29,7 @@ def read_items_from_file(f,o):
                         if 'buy any' in item:
                             print('buy any') 
                             f_type=2
-                            m=item[7:9].strip
+                            m=item[7:9].strip()
                             print(item)
                             print('m', m)
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
@@ -51,7 +51,7 @@ class CheckoutSolution:
         self.price={}
         self.offers={0:{}, 1:{}, 2:{}} 
         self.counts=None
-        f=open("challenges/CHK_R4.txt")
+        f=open("challenges/CHK_R5.txt")
         read_items_from_file(f, self)
     
     def count_chars(self, string):
@@ -164,4 +164,5 @@ class CheckoutSolution:
 
 c=CheckoutSolution()
 print(c.checkout('XTYXX'))
+
 
