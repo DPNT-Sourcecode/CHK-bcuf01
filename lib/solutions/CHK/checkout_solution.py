@@ -48,9 +48,8 @@ def read_items_from_file(f,o):
                             print('offer', offer_key)
                             print('key', key)
                             #print(item)
-
                             #print('n', n)
-                    o.add_offer(f_type,key,int(n),offer_key,new_value)
+                    o.add_offer(f_type,offer_key,int(n),key,new_value)
             o.new_item(line[2], int(line[9:12]))
 
 def order_keys(key):
@@ -199,4 +198,5 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
