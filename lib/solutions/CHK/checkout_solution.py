@@ -25,6 +25,14 @@ def read_items_from_file(f,o):
                         new_value=int(new_value)     
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
+
+def order_keys(key):
+    '''order keys by the number part of the order key'''
+    while key[-1].isdigit() == False:
+        key=key[-1] 
+    return(int(key))    
+
+
 class CheckoutSolution:
 
     # skus = unicode string
@@ -94,7 +102,7 @@ class CheckoutSolution:
                     self.get_offer(0, offer)
         
         #execute all offers of type one next
-        for offer in sorted(self.offers[1].keys(), reverse = True):
+        for offer in sorted(self.offers[1].keys(), reverse = True, key=order_keys):
             k=self.offers[1][offer]['k']
             if k in self.counts.keys():
                     self.get_offer(1, offer)
@@ -105,3 +113,6 @@ class CheckoutSolution:
             result+=self.counts[k]*self.price[k] 
         return int(result)         
 
+c=CheckoutSolution()
+print(c.checkout('HHHHH') == 45)
+print(c.checkout('HHHHHHHHHH') == 80)
