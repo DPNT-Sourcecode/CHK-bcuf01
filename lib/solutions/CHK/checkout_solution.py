@@ -144,6 +144,8 @@ class CheckoutSolution:
                         break
                     else:
                         print('else')
+                        print('counts', self.counts[key])
+                        print('key', key)
                         val-=self.counts[key]
                         print('val', val)
                         self.counts[key]=0
