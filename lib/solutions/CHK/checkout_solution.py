@@ -42,19 +42,20 @@ def read_items_from_file(f,o):
                         #print('new_value',new_value) 
                         if new_value[0].isdigit() == False:
                              new_value=new_value[1:]
-                        new_value=int(new_value) 
+                        new_value=int(new_value.strip())
+                        print('new', new_value) 
                         #print('item',item)  
                         if 'buy any' in item:
                             #print('buy any') 
                             f_type=2
                             n=item[7:9].strip()
                             print('special offer n', n)
-                            offer=item.split('(')[-1]
-                            offer=offer.split(')')[0]
-                            offer=offer.replace(',', '')
-                            offer_key=offer
-                            key=offer
-                            print('offer', offer)
+                            offer_key=item.split('(')[-1]
+                            offer_key=offer_key.split(')')[0]
+                            offer_key=offer_key.replace(',', '')
+                            #offer_key=offer
+                            key=offer_key
+                            print('offer', offer_key)
                             print('key', key)
                             #print(item)
 
@@ -203,6 +204,7 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
