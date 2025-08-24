@@ -133,10 +133,11 @@ class CheckoutSolution:
  
 
     def get_offer(self,f_type, offer_key):
-        
-        input=self.offers[f_type][offer_key]
+        if offer_key in self.counts.keys() or f_type==2:
+            input=self.offers[f_type][offer_key]
         if f_type == 0:
-            return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
+            if input['new_val'] in self.counts.keys():
+                return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 2:
@@ -150,18 +151,20 @@ class CheckoutSolution:
         self.count_chars(skus)
         
         #execute all offers of type zero first
-        for offer in self.offers[0].keys():
-            k=self.offers[0][offer]['k']
-            if k in self.counts.keys():
-                if self.offers[0][offer]['new_val'] in self.counts.keys():
-                    self.get_offer(0, offer)
-        
+        for f_type in self.offers.keys():
+            offers=self.offers[f_type]
+            if f_type == 1:
+                offers = sorted(offers, reverse=True, key=order_keys)
+            for offer in offers:
+                k=self.offers[f_type][offer]['k']
+                self.get_offer(f_type, offer)
+        '''        
         #execute all offers of type one next
         for offer in sorted(self.offers[1].keys(), reverse = True, key=order_keys):
             k=self.offers[1][offer]['k']
             if k in self.counts.keys():
                     self.get_offer(1, offer)
-        
+        '''
         for k in self.counts.keys():
             if k not in self.price.keys():
                return -1   
