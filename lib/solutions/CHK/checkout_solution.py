@@ -133,8 +133,10 @@ class CheckoutSolution:
  
 
     def get_offer(self,f_type, offer_key):
+        
         if offer_key in self.counts.keys() or f_type==2:
             input=self.offers[f_type][offer_key]
+            print('input', input)
         if f_type == 0:
             if input['new_val'] in self.counts.keys():
                 return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
@@ -174,3 +176,4 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
