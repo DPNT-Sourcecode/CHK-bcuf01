@@ -125,7 +125,9 @@ class CheckoutSolution:
             return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
-    #elif:
+        elif f_type == 2:
+            return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
+            
 
     def checkout(self, skus):
         result=0
@@ -150,3 +152,5 @@ class CheckoutSolution:
             result+=self.counts[k]*self.price[k] 
         return int(result)         
 
+c=CheckoutSolution()
+print(c.checkout('AAB'))
