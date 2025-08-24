@@ -34,7 +34,7 @@ def read_items_from_file(f,o):
                             offer=offer.split(')')[0]
                             offer=offer.replace(',', '')
                             offer_key=offer
-                            #print('offer', offer)
+                            print('offer', offer)
                             #print(item)
                             #print('n', n)
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
@@ -139,15 +139,16 @@ class CheckoutSolution:
         #if offer_key in self.counts.keys() or f_type==2:
         input=self.offers[f_type][offer_key]
         print('input', input)
-        if f_type == 0:
-            if input['new_val'] in self.counts.keys():
-                return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
-        elif f_type == 1:
-            return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
-        elif f_type == 2:
-            print('f 2')
-            print(input)
-            return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
+        if input['k'] in self.counts.keys() or f_type==2:
+            if f_type == 0:
+                if input['new_val'] in self.counts.keys():
+                    return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
+            elif f_type == 1:
+                return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
+            elif f_type == 2:
+                print('f 2')
+                print(input)
+                return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
             
 
     def checkout(self, skus):
@@ -180,6 +181,7 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
