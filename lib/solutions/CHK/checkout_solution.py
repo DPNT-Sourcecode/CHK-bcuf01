@@ -114,8 +114,3 @@ class CheckoutSolution:
                return -1   
             result+=self.counts[k]*self.price[k] 
         return int(result)         
-
-print
-c=CheckoutSolution()
-print(c.checkout('HHHHH') == 45)
-print(c.checkout('HHHHHHHHHH') == 80)
