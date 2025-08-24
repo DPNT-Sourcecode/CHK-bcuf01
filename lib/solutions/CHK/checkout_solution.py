@@ -145,6 +145,7 @@ class CheckoutSolution:
                     else:
                         print('else')
                         val-=self.counts[key]
+                        print('val', val)
                         self.counts[key]=0
                         print(key)
                         print(self.counts[key])
@@ -208,6 +209,7 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
