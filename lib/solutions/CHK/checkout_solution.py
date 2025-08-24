@@ -132,46 +132,23 @@ class CheckoutSolution:
             val=discount*n_items
             print(val)
             while val>0:
-                print('counts', self.counts)
                 for key in remove_keys:
-                    print('val', val)
-                    print('key', key)
                     if val<self.counts[key]:
-                        print('')
-                        print('if')
-                        print(self.counts[key])
                         self.counts[key]-=val
                         val=0
-                        print(key)
-                        print(self.counts[key])
                         break
                     else:
-                        print('')
-                        print('else')
-                        print('counts', self.counts[key])
-                        print('key', key)
                         val-=self.counts[key]
-                        print('val', val)
                         self.counts[key]=0
-                        print(key)
-                        print(self.counts[key])
                         if val==0:
                             break
-                        continue
-                    if val==0:
-                         break     
-            print(self.counts)
-            print(self.price)
-        #           self.counts[key]-=n_items*discount
+                        continue  
+
  
 
     def get_offer(self,f_type, offer_key):
-        print(self.counts.keys())
-        print(offer_key)
 
-        #if offer_key in self.counts.keys() or f_type==2:
         input=self.offers[f_type][offer_key]
-        print('input', input)
         if input['k'] in self.counts.keys() or f_type==2:
             if f_type == 0:
                 if input['new_val'] in self.counts.keys():
@@ -179,8 +156,6 @@ class CheckoutSolution:
             elif f_type == 1:
                 return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
             elif f_type == 2:
-                print('f 2')
-                print(input)
                 return(self.offer_2(input['n_items'], input['k'], input['new_val'], input['offer']))
             
 
@@ -190,10 +165,7 @@ class CheckoutSolution:
         
         #execute all offers of type zero first
         for f_type in self.offers.keys():
-            print(f_type)
             offers=self.offers[f_type].keys()
-            print(offers)
-            print(f_type)
             if f_type == 1:
                 offers = sorted(offers, reverse=True, key=order_keys)
             for offer in offers:
@@ -217,6 +189,7 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
