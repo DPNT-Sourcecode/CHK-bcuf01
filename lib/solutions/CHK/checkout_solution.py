@@ -40,7 +40,7 @@ class CheckoutSolution:
     # skus = unicode string
     def __init__(self):
         self.price={}
-        self.offers={0:{}, 1:{}} 
+        self.offers={0:{}, 1:{}, 2:{}} 
         self.counts=None
         f=open("challenges/CHK_R4.txt")
         read_items_from_file(f, self)
@@ -83,6 +83,17 @@ class CheckoutSolution:
         self.price[offer_key]=new_value
         self.counts[offer_key]=discount
 
+    def offer_2(self, n_items, key_item, new_value, offer_key ): 
+        '''
+        Buy any 3 for X
+        '''
+        any3_keys={'S','T','X','Y','Z'}
+        #print('executing offer 2')
+        
+        discount=int(self.counts[key_item]/n_items)
+        self.counts[key_item]-=n_items*discount
+        self.price[offer_key]=new_value
+        self.counts[offer_key]+=discount
 
     def get_offer(self,f_type, offer_key):
         input=self.offers[f_type][offer_key]
@@ -114,3 +125,8 @@ class CheckoutSolution:
                return -1   
             result+=self.counts[k]*self.price[k] 
         return int(result)         
+
+keys=['S','T','X','Y','Z']
+d={'T':2, 'X':1, 'A':6}
+if d.keys() in keys:
+    print(d.values())
