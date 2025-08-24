@@ -119,12 +119,13 @@ class CheckoutSolution:
  
 
     def get_offer(self,f_type, offer_key):
+        
         input=self.offers[f_type][offer_key]
         if f_type == 0:
             return(self.offer_0(input['n_items'], input['k'], input['new_val'], input['offer']))
-        if f_type == 1:
+        elif f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
-
+    elif:
 
     def checkout(self, skus):
         result=0
