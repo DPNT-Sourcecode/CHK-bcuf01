@@ -172,6 +172,8 @@ class CheckoutSolution:
         for f_type in self.offers.keys():
             print(f_type)
             offers=self.offers[f_type].keys()
+            print(offers)
+            print(f_type)
             if f_type == 1:
                 offers = sorted(offers, reverse=True, key=order_keys)
             for offer in offers:
@@ -194,6 +196,7 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
