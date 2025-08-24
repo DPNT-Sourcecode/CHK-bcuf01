@@ -55,6 +55,7 @@ def read_items_from_file(f,o):
                             offer_key=offer
                             key=offer
                             print('offer', offer)
+                            print('key', key)
                             #print(item)
 
                             #print('n', n)
@@ -202,6 +203,7 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
