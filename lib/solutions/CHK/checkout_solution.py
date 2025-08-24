@@ -137,6 +137,5 @@ class CheckoutSolution:
 keys=['S','T','X','Y','Z']
 d={'T':2, 'X':1, 'A':6}
 
-print(sorted(d), key=d.values)
-if d.keys() in keys:
-    print(d.values())
+d=sorted(d, key=lambda x: d[x])
+print(d)
