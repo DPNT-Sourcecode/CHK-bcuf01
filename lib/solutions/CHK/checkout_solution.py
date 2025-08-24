@@ -126,6 +126,7 @@ class CheckoutSolution:
         elif f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 2:
+            print(input)
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
             
 
@@ -153,4 +154,4 @@ class CheckoutSolution:
         return int(result)         
 
 c=CheckoutSolution()
-print(c.checkout('AAB'))
+print(c.checkout('XTYXX'))
