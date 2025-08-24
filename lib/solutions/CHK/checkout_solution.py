@@ -149,6 +149,7 @@ class CheckoutSolution:
             result+=self.counts[k]*self.price[k] 
         return int(result)         
 
+print('hello')
 
 c=CheckoutSolution()
 c.count_chars('TXXXX')
