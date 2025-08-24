@@ -29,14 +29,14 @@ def read_items_from_file(f,o):
                         if 'buy any' in item:
                             print('buy any') 
                             f_type=2
-                            m=item[7:9].strip()
+                            n=item[7:9].strip()
                             offer=item.split('(')[-1]
                             offer=offer.split(')')[0]
                             offer=offer.replace(',', '')
                             offer_key=offer
                             print('offer', offer)
                             print(item)
-                            print('m', m)
+                            print('n', n)
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
 
@@ -140,6 +140,7 @@ class CheckoutSolution:
         elif f_type == 1:
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
         elif f_type == 2:
+            print('f 2')
             print(input)
             return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
             
@@ -168,7 +169,8 @@ class CheckoutSolution:
         return int(result)         
 
 c=CheckoutSolution()
-print(c.checkout('XTYXX'))
+print(c.checkout('XTYXX')==79)
+print(c.counts)
 
 
 
