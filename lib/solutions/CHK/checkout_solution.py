@@ -119,4 +119,3 @@ print
 c=CheckoutSolution()
 print(c.checkout('HHHHH') == 45)
 print(c.checkout('HHHHHHHHHH') == 80)
-
