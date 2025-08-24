@@ -133,7 +133,9 @@ class CheckoutSolution:
  
 
     def get_offer(self,f_type, offer_key):
-        
+        print(self.counts.keys())
+        print(offer_key)
+
         if offer_key in self.counts.keys() or f_type==2:
             input=self.offers[f_type][offer_key]
             print('input', input)
@@ -154,7 +156,7 @@ class CheckoutSolution:
         
         #execute all offers of type zero first
         for f_type in self.offers.keys():
-            offers=self.offers[f_type]
+            offers=self.offers[f_type].keys()
             if f_type == 1:
                 offers = sorted(offers, reverse=True, key=order_keys)
             for offer in offers:
@@ -176,4 +178,5 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
