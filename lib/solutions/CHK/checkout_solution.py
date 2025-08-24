@@ -135,6 +135,7 @@ class CheckoutSolution:
                 print('counts', self.counts)
                 for key in remove_keys:
                     print('val', val)
+                    print('key', key)
                     if val<self.counts[key]:
                         print('if')
                         self.counts[key]-=val
@@ -209,10 +210,3 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
-
-
-
-
-
-
-
