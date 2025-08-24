@@ -30,6 +30,11 @@ def read_items_from_file(f,o):
                             print('buy any') 
                             f_type=2
                             m=item[7:9].strip()
+                            offer=item.split('(')[-1]
+                            offer=offer.split(')')[0]
+                            offer=offer.replace(',', '')
+                            offer_key=offer
+                            print('offer', offer)
                             print(item)
                             print('m', m)
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
@@ -164,5 +169,6 @@ class CheckoutSolution:
 
 c=CheckoutSolution()
 print(c.checkout('XTYXX'))
+
 
 
