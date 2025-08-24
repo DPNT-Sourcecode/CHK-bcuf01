@@ -39,7 +39,7 @@ def read_items_from_file(f,o):
                             #print('buy any') 
                             f_type=2
                             n=item[7:9].strip()
-                            print('special offer n', n)
+                            #print('special offer n', n)
                             offer_key=item.split('(')[-1]
                             offer_key=offer_key.split(')')[0]
                             offer_key=offer_key.replace(',', '')
@@ -57,9 +57,8 @@ def order_keys(key):
     while key[-1].isdigit() == False:
         if len(key)<2:
             return
-            print(key)
         key=key[:-1] 
-        print(key)
+        
     return(int(key))    
 
 
@@ -105,7 +104,6 @@ class CheckoutSolution:
         '''
         Buy X for Y
         '''
-        #print('executing offer 1')
         discount=int(self.counts[key_item]/n_items)
         self.counts[key_item]-=n_items*discount
         self.price[offer_key]=new_value
@@ -115,8 +113,7 @@ class CheckoutSolution:
         '''
         Buy any 3 for X
         '''
-        #key_item=['S','T','X','Y','Z']
-        #print('executing offer 2')
+
         total=0
         remove_keys={}
         for k in key_item:
@@ -130,7 +127,6 @@ class CheckoutSolution:
             self.counts[offer_key]=discount
             remove_keys=sorted(remove_keys, key=lambda x: self.price[x], reverse=True)
             val=discount*n_items
-            print(val)
             while val>0:
                 for key in remove_keys:
                     if val<self.counts[key]:
@@ -169,7 +165,7 @@ class CheckoutSolution:
             if f_type == 1:
                 offers = sorted(offers, reverse=True, key=order_keys)
             for offer in offers:
-                print(offer)
+                #print(offer)
                 k=self.offers[f_type][offer]['k']
                 self.get_offer(f_type, offer)
         '''        
@@ -189,6 +185,7 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
