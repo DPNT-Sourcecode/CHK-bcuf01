@@ -11,6 +11,7 @@ def read_items_from_file(f,o):
                 offers=offers.split(', ')
                 for item in offers:
                     n=item[:2]
+                    print(n)
                     if n[-1].isdigit() == False:
                         n=n[:-1]  
                     offer_key=item[:3].strip()
@@ -19,10 +20,18 @@ def read_items_from_file(f,o):
                         new_value=item[-6]
                     if 'for' in item:
                         f_type=1
-                        new_value=item[-3:]  
+                        new_value=item[-3:] 
+                        print('new_value',new_value) 
                         if new_value[0].isdigit() == False:
                              new_value=new_value[1:]
-                        new_value=int(new_value)     
+                        new_value=int(new_value) 
+                        print('item',item)  
+                        if 'buy any' in item:
+                            print('buy any') 
+                            f_type=2
+                            m=item[7:9].strip
+                            print(item)
+                            print('m', m)
                     o.add_offer(f_type,offer_key,int(n),offer_key[-1],new_value)
             o.new_item(line[2], int(line[9:12]))
 
@@ -155,3 +164,4 @@ class CheckoutSolution:
 
 c=CheckoutSolution()
 print(c.checkout('XTYXX'))
+
