@@ -29,6 +29,8 @@ class CheckoutSolution():
         assert CheckoutSolution().checkout('FFF') == 20
         assert CheckoutSolution().checkout('FFFFFF') == 40
         assert CheckoutSolution().checkout('EEBBBAAA') == 255
+        assert CheckoutSolution().checkout('HHHHH') == 45
+        assert CheckoutSolution().checkout('HHHHHHHHHH') == 80
 
     def test_illegal_input(self):
         assert CheckoutSolution().checkout('X*') == -1

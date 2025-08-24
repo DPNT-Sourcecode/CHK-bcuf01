@@ -29,6 +29,8 @@ def read_items_from_file(f,o):
 def order_keys(key):
     '''order keys by the number part of the order key'''
     while key[-1].isdigit() == False:
+        if len(key)<2:
+            return
         key=key[:-1] 
     return(int(key))    
 
@@ -117,3 +119,4 @@ print
 c=CheckoutSolution()
 print(c.checkout('HHHHH') == 45)
 print(c.checkout('HHHHHHHHHH') == 80)
+
