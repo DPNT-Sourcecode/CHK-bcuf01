@@ -194,13 +194,6 @@ class CheckoutSolution:
         return int(result)         
 
 c=CheckoutSolution()
+print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
-
-
-
-
-
-
-
-
