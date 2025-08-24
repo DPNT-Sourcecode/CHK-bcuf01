@@ -15,7 +15,7 @@ def read_items_from_file(f,o):
                     offer_key=item[:3].strip()
                     print('offer key', offer_key)
                     print(len(offer_key))
-                    if offer_key[-1].isdigit() == False:
+                    #if offer_key[-1].isdigit() == Falcse:
                         
                     if n[-1].isdigit() == False:
 
@@ -192,3 +192,4 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
