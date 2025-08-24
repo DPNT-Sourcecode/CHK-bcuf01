@@ -130,16 +130,20 @@ class CheckoutSolution:
             self.counts[offer_key]=discount
             remove_keys=sorted(remove_keys, key=lambda x: self.price[x], reverse=True)
             val=discount*n_items
+            print(val)
             while val>0:
                 print('counts', self.counts)
                 for key in remove_keys:
+                    print('val', val)
                     if val<self.counts[key]:
+                        print('if')
                         self.counts[key]-=val
                         print(key)
                         print(self.counts[key])
 
                         break
                     else:
+                        print('else')
                         val-=self.counts[key]
                         self.counts[key]=0
                         print(key)
@@ -204,6 +208,7 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
