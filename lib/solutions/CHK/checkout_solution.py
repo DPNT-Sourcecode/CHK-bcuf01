@@ -87,11 +87,19 @@ class CheckoutSolution:
         '''
         Buy any 3 for X
         '''
-        any3_keys={'S','T','X','Y','Z'}
+        key_item=['S','T','X','Y','Z']
         #print('executing offer 2')
-        
-        discount=int(self.counts[key_item]/n_items)
-        self.counts[key_item]-=n_items*discount
+        total=0
+        remove_keys:{}
+        for k in key_item:
+            if k in self.counts.keys():
+                remove_keys={x:self.counts[k]}
+                total+=self.counts[k]
+        discount=int(total/n_items)
+        #if discount>0:
+            #for k in remove_keys:
+
+        #self.counts[key_item]-=n_items*discount
         self.price[offer_key]=new_value
         self.counts[offer_key]+=discount
 
@@ -128,5 +136,7 @@ class CheckoutSolution:
 
 keys=['S','T','X','Y','Z']
 d={'T':2, 'X':1, 'A':6}
+
+print(sorted(d), key=d.values)
 if d.keys() in keys:
     print(d.values())
