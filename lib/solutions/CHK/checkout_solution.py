@@ -59,7 +59,7 @@ def order_keys(key):
         if len(key)<2:
             return
             print(key)
-            key=key[:-1] 
+        key=key[:-1] 
         print(key)
     return(int(key))    
 
@@ -199,3 +199,4 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
