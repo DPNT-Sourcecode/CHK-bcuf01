@@ -20,18 +20,8 @@ def read_items_from_file(f,o):
                     print('key', key)        
                     print('n',n)
 
-                    offer_key=item[:3].strip()
                     print('offer key', offer_key)
                     print(len(offer_key))
-                    #if offer_key[-1].isdigit() == Falcse:
-                        
-                    #if n[-1].isdigit() == False:
-
-                        #key=n[:-1]
-                        #print('key', key)
-
-                        #n=n[:1]
-                        #print('n_items', n)
                     
                     if 'get one ' in item:
                         f_type=0
@@ -124,7 +114,7 @@ class CheckoutSolution:
         '''
         Buy any 3 for X
         '''
-        key_item=['S','T','X','Y','Z']
+        #key_item=['S','T','X','Y','Z']
         #print('executing offer 2')
         total=0
         remove_keys={}
@@ -204,6 +194,7 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
