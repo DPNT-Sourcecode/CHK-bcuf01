@@ -149,3 +149,4 @@ class CheckoutSolution:
                return -1   
             result+=self.counts[k]*self.price[k] 
         return int(result)         
+
