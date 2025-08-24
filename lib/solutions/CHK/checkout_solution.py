@@ -17,38 +17,22 @@ def read_items_from_file(f,o):
                     else:
                         key=None
                         n=offer_key   
-                    #print('key', key)        
-                    #print('n',n)
-
-                    #print('offer key', offer_key)
-                    #print(len(offer_key))
-                    
                     if 'get one ' in item:
                         f_type=0
                         new_value=item[-6]
                     if 'for' in item:
                         f_type=1
                         new_value=item[-3:] 
-                        #print('new_value',new_value) 
                         if new_value[0].isdigit() == False:
                              new_value=new_value[1:]
                         new_value=int(new_value.strip())
-                        #print('new', new_value) 
-                        #print('item',item)  
                         if 'buy any' in item:
-                            #print('buy any') 
                             f_type=2
                             n=item[7:9].strip()
-                            #print('special offer n', n)
                             offer_key=item.split('(')[-1]
                             offer_key=offer_key.split(')')[0]
                             offer_key=offer_key.replace(',', '')
-                            #offer_key=offer
                             key=offer_key
-                            #print('offer', offer_key)
-                            #print('key', key)
-                            #print(item)
-                            #print('n', n)
                     o.add_offer(f_type,offer_key,int(n),key,new_value)
             o.new_item(line[2], int(line[9:12]))
 
@@ -168,23 +152,13 @@ class CheckoutSolution:
                 #print(offer)
                 k=self.offers[f_type][offer]['k']
                 self.get_offer(f_type, offer)
-        '''        
-        #execute all offers of type one next
-        for offer in sorted(self.offers[1].keys(), reverse = True, key=order_keys):
-            k=self.offers[1][offer]['k']
-            if k in self.counts.keys():
-                    self.get_offer(1, offer)
-        '''
+
         for k in self.counts.keys():
             if k not in self.price.keys():
                return -1   
             result+=self.counts[k]*self.price[k] 
         return int(result)         
 
-c=CheckoutSolution()
-print(c.offers)
-print(c.checkout('XTYXX')==79)
-print(c.counts)
 
 
 
