@@ -139,6 +139,7 @@ class CheckoutSolution:
                     if val<self.counts[key]:
                         print('')
                         print('if')
+                        print(self.counts[key])
                         self.counts[key]-=val
                         print(key)
                         print(self.counts[key])
@@ -156,8 +157,8 @@ class CheckoutSolution:
                         if val==0:
                             break
                         continue
-                if val==0:
-                   break     
+                    if val==0:
+                         break     
             print(self.counts)
             print(self.price)
         #           self.counts[key]-=n_items*discount
@@ -215,4 +216,5 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
