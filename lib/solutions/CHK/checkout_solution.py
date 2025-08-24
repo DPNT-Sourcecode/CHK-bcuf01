@@ -149,10 +149,3 @@ class CheckoutSolution:
                return -1   
             result+=self.counts[k]*self.price[k] 
         return int(result)         
-
-print('hello')
-
-c=CheckoutSolution()
-c.count_chars('TXXXX')
-c.offer_2(3,'any',45, 'any' )
-print('hello')
