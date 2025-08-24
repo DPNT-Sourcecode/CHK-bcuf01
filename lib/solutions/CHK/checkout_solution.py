@@ -162,7 +162,7 @@ class CheckoutSolution:
             elif f_type == 2:
                 print('f 2')
                 print(input)
-                return(self.offer_1(input['n_items'], input['k'], input['new_val'], input['offer']))
+                return(self.offer_2(input['n_items'], input['k'], input['new_val'], input['offer']))
             
 
     def checkout(self, skus):
@@ -198,5 +198,6 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
