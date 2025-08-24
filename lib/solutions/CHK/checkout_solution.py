@@ -58,7 +58,9 @@ def order_keys(key):
     while key[-1].isdigit() == False:
         if len(key)<2:
             return
-        key=key[:-1] 
+            print(key)
+            key=key[:-1] 
+        print(key)
     return(int(key))    
 
 
