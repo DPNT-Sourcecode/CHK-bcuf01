@@ -93,15 +93,28 @@ class CheckoutSolution:
         remove_keys:{}
         for k in key_item:
             if k in self.counts.keys():
-                remove_keys={x:self.counts[k]}
+                remove_keys[k]=self.counts[k]
                 total+=self.counts[k]
-        discount=int(total/n_items)
-        #if discount>0:
-            #for k in remove_keys:
+        discount=int(total/n_items)        
+        
+        if discount>0:
+            self.price[offer_key]=new_value
+            self.counts[offer_key]+=discount
+            remove_keys=sorted(remove_keys, key=lambda x: self.prices[x], reverse=True)
+            val=discount*n_items
+            while val>0:
+                for key in remove_keys:
+                    if val<self.counts[key]:
+                        self.counts[key]-=val
+                        break
+                    else:
+                        val-=self.counts[key]
+                        self.counts[key]=0
+                        continue
+                
 
-        #self.counts[key_item]-=n_items*discount
-        self.price[offer_key]=new_value
-        self.counts[offer_key]+=discount
+        #           self.counts[key]-=n_items*discount
+ 
 
     def get_offer(self,f_type, offer_key):
         input=self.offers[f_type][offer_key]
@@ -134,8 +147,7 @@ class CheckoutSolution:
             result+=self.counts[k]*self.price[k] 
         return int(result)         
 
-keys=['S','T','X','Y','Z']
-d={'T':2, 'X':1, 'A':6}
 
-d=sorted(d, key=lambda x: d[x])
-print(d)
+c=CheckoutSolution()
+c.count_chars('TXXXX')
+c.offer_2()
