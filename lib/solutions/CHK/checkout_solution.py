@@ -10,11 +10,13 @@ def read_items_from_file(f,o):
                 offers=offers[:-2].strip()
                 offers=offers.split(', ')
                 for item in offers:
-                    n=item[:3].strip()
-                    if n[-1].isdigit() == False:
-                        key=n[-1]
+                    offer_key=item[:3].strip()
+                    if offer_key[-1].isdigit() == False:
+                        key=offer_key[-1]
+                        n=offer_key[:-1]
                     else:
                         key=None
+                        n=offer_key   
                     print('key', key)        
                     print('n',n)
 
@@ -28,8 +30,8 @@ def read_items_from_file(f,o):
                         #key=n[:-1]
                         #print('key', key)
 
-                        n=n[:1]
-                        print('n_items', n)
+                        #n=n[:1]
+                        #print('n_items', n)
                     
                     if 'get one ' in item:
                         f_type=0
@@ -198,5 +200,6 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
