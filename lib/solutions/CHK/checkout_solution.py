@@ -17,11 +17,11 @@ def read_items_from_file(f,o):
                     else:
                         key=None
                         n=offer_key   
-                    print('key', key)        
-                    print('n',n)
+                    #print('key', key)        
+                    #print('n',n)
 
-                    print('offer key', offer_key)
-                    print(len(offer_key))
+                    #print('offer key', offer_key)
+                    #print(len(offer_key))
                     
                     if 'get one ' in item:
                         f_type=0
@@ -33,7 +33,7 @@ def read_items_from_file(f,o):
                         if new_value[0].isdigit() == False:
                              new_value=new_value[1:]
                         new_value=int(new_value.strip())
-                        print('new', new_value) 
+                        #print('new', new_value) 
                         #print('item',item)  
                         if 'buy any' in item:
                             #print('buy any') 
@@ -45,8 +45,8 @@ def read_items_from_file(f,o):
                             offer_key=offer_key.replace(',', '')
                             #offer_key=offer
                             key=offer_key
-                            print('offer', offer_key)
-                            print('key', key)
+                            #print('offer', offer_key)
+                            #print('key', key)
                             #print(item)
                             #print('n', n)
                     o.add_offer(f_type,offer_key,int(n),key,new_value)
@@ -131,13 +131,19 @@ class CheckoutSolution:
             remove_keys=sorted(remove_keys, key=lambda x: self.price[x], reverse=True)
             val=discount*n_items
             while val>0:
+                print('counts', self.counts)
                 for key in remove_keys:
                     if val<self.counts[key]:
                         self.counts[key]-=val
+                        print(key)
+                        print(self.counts[key])
+
                         break
                     else:
                         val-=self.counts[key]
                         self.counts[key]=0
+                        print(key)
+                        print(self.counts[key])
                         continue
                     if val==0:
                         break
@@ -198,6 +204,7 @@ c=CheckoutSolution()
 print(c.offers)
 print(c.checkout('XTYXX')==79)
 print(c.counts)
+
 
 
 
