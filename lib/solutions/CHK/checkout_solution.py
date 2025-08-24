@@ -113,7 +113,8 @@ class CheckoutSolution:
                         continue
                     if val==0:
                         break
-
+            print(self.counts)
+            print(self.price)
         #           self.counts[key]-=n_items*discount
  
 
@@ -152,3 +153,4 @@ class CheckoutSolution:
 c=CheckoutSolution()
 c.count_chars('TXXXX')
 c.offer_2(3,'any',45, 'any' )
+print('hello')
