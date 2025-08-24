@@ -171,7 +171,3 @@ class CheckoutSolution:
 c=CheckoutSolution()
 print(c.checkout('XTYXX')==79)
 print(c.counts)
-
-
-
-
